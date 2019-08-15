@@ -1,0 +1,19 @@
+{
+  "name": "mongodb-rest-api",
+  "version": "0.0.4",
+  "description": "Rest API for mongodb - general purpose RESTFUL.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CliffCrerar/mongo-micro-serverless.git"
+  },
+  "author": "Cliff Crerar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CliffCrerar/mongo-micro-serverless/issues"
+  },
+  "homepage": "https://github.com/CliffCrerar/mongo-micro-serverless#readme"
+}
