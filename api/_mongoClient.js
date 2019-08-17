@@ -11,10 +11,10 @@ async function connectToDatabase() {
     // use it instead of creating a new connection
     if (cachedDb) {return cachedDb}
     // If no connection is cached, create a new one
-    const client = await MongoClient.connect(process.env.DigitMongoRetrievalAccess,legacyModifiers)
+    const client = await MongoClient.connect(process.env.MONGODB_URI,legacyModifiers)
     // Select the database through the connection,
     // using the database path of the connection string
-    const db = await client.db(url.parse(connectionString).pathname.substr(1))
+    const db = await client.db(url.parse(process.env.MONGODB_URI).pathname.substr(1))
     // Cache the database connection and return the connection
     cachedDb = db
     return db

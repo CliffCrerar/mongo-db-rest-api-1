@@ -1,4 +1,4 @@
-const connectToDatabase = require('./_mongoClient');
+const connectToDatabase = require('../_mongoClient');
 console.log('dbClient: ', connectToDatabase);
 
 async function Retrieve(...RetrieveParams){
@@ -6,11 +6,11 @@ async function Retrieve(...RetrieveParams){
     const {collectionName} = RetrieveParams[0];
     const res = RetrieveParams[1];
     
-    
     console.log('collectionName: ', collectionName);
     
     try {
-        // Get a database connection, cached or otherwise,
+        // Get a database connection, cached or otherwise
+
         // using the connection string environment variable as the argument
         const db = await connectToDatabase()
         console.log('db: ', db);
