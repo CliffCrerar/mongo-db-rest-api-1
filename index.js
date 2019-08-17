@@ -3,7 +3,11 @@ const express = require('express');
 const helmet = require('helmet');
 const app = express();
 const Retrieve = require('./api/_get');
-const path = require('path')
+const path = require('path');
+const parseLog = require('mongodb-log').parse;
+
+let line = 'Wed Mar 12 14:42:31 [initandlisten] db version v2.5.6-pre-';
+console.log("MDB-LOG",parseLog(line));
 
 app.use(helmet());
 
