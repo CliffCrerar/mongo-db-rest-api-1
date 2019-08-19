@@ -2,8 +2,13 @@ const connectToDatabase = require('../_mongoClient');
 console.log('dbClient: ', connectToDatabase);
 
 async function InsertOrUpdate(...RetrieveParams) {
-    console.log('RetrieveParams: ', RetrieveParams);
+    
+    
+    console.log('RetrieveParams[0];: ', RetrieveParams[0]);
+    console.log('RetrieveParams[1];: ', RetrieveParams[1]);
+    
     const { collectionName } = RetrieveParams[0];
+    
     const res = RetrieveParams[1];
 
     console.log('collectionName: ', collectionName);

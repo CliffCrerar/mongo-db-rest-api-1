@@ -7,6 +7,10 @@ const path = require('path');
 const parseLog = require('mongodb-log').parse;
 const os = require('os')
 
+
+        process.env.MONGODB_URI_THEMES_ALL
+        console.log('process.env.MONGODB_URI_THEMES_ALL: ', process.env.MONGODB_URI_THEMES_ALL);
+
 // Compatibility with posix and windows.
 process.env.NODE_PATH=[__dirname,path.join(__dirname,'api')].join(os.platform!='win32'? ':':";");
 

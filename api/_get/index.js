@@ -6,7 +6,11 @@ async function Retrieve(...RetrieveParams){
     const {collectionName} = RetrieveParams[0];
     const res = RetrieveParams[1];
     
-    console.log('collectionName: ', collectionName);
+    console.log('RetrieveParams[0];: ', RetrieveParams[0]);
+    console.log('RetrieveParams[1];: ', RetrieveParams[1]);
+    
+    
+    
     
     try {
         // Get a database connection, cached or otherwise

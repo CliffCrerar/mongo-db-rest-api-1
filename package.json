@@ -12,7 +12,8 @@
         "helmet": "^3.18.0",
         "moment": "^2.24.0",
         "mongodb": "^3.3.0",
-        "mongodb-log": "^1.2.5"
+        "mongodb-log": "^1.2.5",
+        "uuid": "^3.3.3"
     },
     "author": "Cliff Crerar",
     "license": "MIT"
