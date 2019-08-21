@@ -1,42 +1,51 @@
+
 const connectToDatabase = require('../_mongoClient');
+const path = require('path');
+const paramsetLookup = require(path.join(__dirname,'../','param-set.json'));
+
 console.log('dbClient: ', connectToDatabase);
 
-async function InsertOrUpdate(...RetrieveParams) {
+async function Insert(...PutParams) {
+    // console.log('PutParams: ', PutParams);
     
+    const {lookupKey} = PutParams[0];
+    const {collectionName,useUri,databaseName,documentId} = paramsetLookup.filter(entry => entry.setId === lookupKey)[0].params
+    const recordInsert = PutParams[2];
     
-    console.log('RetrieveParams[0];: ', RetrieveParams[0]);
-    console.log('RetrieveParams[1];: ', RetrieveParams[1]);
+    // console.log('lookupKey: ', lookupKey);
+    // console.log('documentId: ', documentId);
+    // console.log('databaseName: ', databaseName);
+    // console.log('useUri: ', useUri);
+    // console.log('collectionName: ', collectionName);
+    // console.log('Entry to PUT: ', PutParams[2]);
     
-    const { collectionName } = RetrieveParams[0];
+    // console.log('RetrieveParams[1];: ', RetrieveParams[1]);
     
-    const res = RetrieveParams[1];
-
-    console.log('collectionName: ', collectionName);
+    //const { collectionName } = RetrieveParams[0];
+    
+    // console.log('CONNECTION STRING:', process.env.MONGODB_URI_THEMES_ALL);
+    // console.log('CONNECTION STRING CH :', process.env[useUri]);
+    
+    const res = PutParams[1];
 
     try {
         // Get a database connection, cached or otherwise
-        if ([null, undefined, ''].includes([collectionName])) {
-            console.error('ASDSD');
-            
-        }
-
-        // using the connection string environment variable as the argument
-        const db = await connectToDatabase();
-        console.log('db: ', db);
-
-        // Select the "users" collection from the database
-        const collection = await db.collection(collectionName);
-
-        // Select the users collection from the database
-        const table = await collection.update(compose(req.body)).toArray();
-
-        // Respond with a JSON string of all users in the collection
-        res.status(200).json({ table });
-
+        const 
+            db = await connectToDatabase(useUri), // using the connection string environment variable as the argument
+            collection = await db.collection(collectionName); // Select the "users" collection from the database
+            //result = await collection.insertOne(recordInsert); // Select the users collection from the database
+            collection.find({themeName: recordInsert.themeName},{explain: true},(err,result)=>{
+                console.log(err);
+                console.log(result);
+                if (err) throw err
+                res.status(200).json( { result: result.toArray() } ); 
+            })
+        
+        // res.status(200).json({ testing: 'testing' }); // Respond with a JSON string of all users in the collection
     } catch (err) {
-        console.error("ERROR", err);
-        res.status(500).write(`<div>${JSON.stringify(err)}</div>`).end();
+        console.error("PUT ERROR:", err);
+        res.status(500).send(`<div>${err}</div>`).end();
     }
 }
 
-module.exports = Retrieve;
+module.exports = Insert;

@@ -2,8 +2,16 @@
     "setId": "e0cf024d-7824-41d7-8882-cf21a6f9cd3a",
     "params": {
         "databaseName": "digitSiteData",
-        "collectionName": "componentData",
+        "collectionName": "componentDatas",
         "documentId": "none",
         "useUri": "MONGODB_URI_DIGIT_GET"
+    }
+}, {
+    "setId": "9add452a-ba41-447c-821b-2d932ae3297f",
+    "params": {
+        "databaseName": "color-themes",
+        "collectionName": "material-ui",
+        "documentId": "none",
+        "useUri": "MONGODB_URI_THEMES_ALL"
     }
 }]

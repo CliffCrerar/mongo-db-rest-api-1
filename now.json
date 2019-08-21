@@ -1,6 +1,6 @@
 {
-    "alias": "rest-api-mongo-1",
-    "name": "rest-api-mongo-1",
+    "alias": "mongodb-rest-digit",
+    "name": "mongodb-rest-api-1",
     "version": 2,
     "builds": [{
         "src": "/index.js",

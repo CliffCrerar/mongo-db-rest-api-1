@@ -3,13 +3,11 @@ const express = require('express');
 const helmet = require('helmet');
 const app = express();
 const Retrieve = require('./api/_get');
+const Insert = require('./api/_put');
 const path = require('path');
 const parseLog = require('mongodb-log').parse;
-const os = require('os')
-
-
-        process.env.MONGODB_URI_THEMES_ALL
-        console.log('process.env.MONGODB_URI_THEMES_ALL: ', process.env.MONGODB_URI_THEMES_ALL);
+const os = require('os');
+const bodyParser = require('body-parser');
 
 // Compatibility with posix and windows.
 process.env.NODE_PATH=[__dirname,path.join(__dirname,'api')].join(os.platform!='win32'? ':':";");
@@ -21,30 +19,27 @@ app.use(helmet());
 
 app.use('/',express.static(path.join(__dirname,'api')))
 
+function reqLogConsole(req){
+    console.log(`|> ${ API_NAME } received request from ${ req.hostname }`);
+    console.log('\n REQUEST HEADERS: ', req.headers, '\n');
+    console.log('\n REQUEST METHOD: ',req.method,'\n');
+    console.log('\n REQUEST PATH: ', req.path, '\n');
+    console.log('\n REQUEST QUERY: ', req.query, '\n');
+    console.log('\n REQUEST BODY: ', req.body, '\n');
+    
+    return;
+}
+
 console.log(`|>-> INIT API: ${ API_NAME }`);
 
 app.get('*', (req, res) => {
-    console.log(`|> ${ API_NAME } received request from ${ req.hostname }`);
-    console.log('\n REQUEST HEADERS: ', req.headers, '\n');
-    console.log('\n REQUEST METHOD: ',req.method,'\n');
-    console.log('\n REQUEST PATH: ', req.path, '\n');
-    console.log('\n REQUEST QUERY: ', req.query, '\n');
+    reqLogConsole(req);
     Retrieve(req.query,res);
-    //res.status(200).send('yes');
-    //res.send();  
 })
 
-app.put('*', (req, res) => {
-    console.log(`|> ${ API_NAME } received request from ${ req.hostname }`);
-    console.log('\n REQUEST HEADERS: ', req.headers, '\n');
-    console.log('\n REQUEST METHOD: ',req.method,'\n');
-    console.log('\n REQUEST PATH: ', req.path, '\n');
-    console.log('\n REQUEST QUERY: ', req.query, '\n');
-    Retrieve(req.query,res);
-    //res.status(200).send('yes');
-    //res.send();  
-})
-
-
+app.put('*', bodyParser.json(), (req, res) => {
+    reqLogConsole(req);
+    Insert(req.query, res, req.body);
+});
 
 module.exports = app;

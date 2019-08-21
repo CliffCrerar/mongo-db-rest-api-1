@@ -1,36 +1,31 @@
-const connectToDatabase = require('../_mongoClient');
-console.log('dbClient: ', connectToDatabase);
+const
+    path = require('path'),
+    connectToDatabase = require('../_mongoClient'),
+    paramsetLookup = require(path.join(__dirname,'../','param-set.json'));
 
 async function Retrieve(...RetrieveParams){
-    // console.log('RetrieveParams: ', RetrieveParams);
-    const {collectionName} = RetrieveParams[0];
-    const res = RetrieveParams[1];
-    
-    console.log('RetrieveParams[0];: ', RetrieveParams[0]);
-    console.log('RetrieveParams[1];: ', RetrieveParams[1]);
-    
-    
-    
-    
+    const 
+        res = RetrieveParams[1],
+        {lookupKey} = RetrieveParams[0],
+        {collectionName,useUri,databaseName,documentId} = 
+            paramsetLookup.filter(entry => entry.setId === lookupKey)[0].params;
+            
+        // console.log('lookupKey: ', lookupKey);
+        // console.log('documentId: ', documentId);
+        // console.log('databaseName: ', databaseName);
+        // console.log('useUri: ', useUri);
+        // console.log('collectionName: ', collectionName);
+        
     try {
         // Get a database connection, cached or otherwise
-
-        // using the connection string environment variable as the argument
-        const db = await connectToDatabase()
-        console.log('db: ', db);
-        
-        // Select the "users" collection from the database
-        const collection = await db.collection(collectionName);
-        
-        // Select the users collection from the database
-        const table = await collection.find({}).toArray()
-        
-        // Respond with a JSON string of all users in the collection
-        res.status(200).json({ table });
-        
+        const 
+            db = await connectToDatabase(useUri), // using the connection string environment variable as the argument
+            collection = await db.collection(collectionName), // Select the "users" collection from the database
+            table = await collection.find({}).toArray() // Select the users collection from the database
+        res.status(200).json({ table }); // Respond with a JSON string of all users in the collection 
     } catch (err) {
-        console.error("ERROR",err);
-        res.status(500).send(err)
+        console.error("GET ERROR",err);
+        res.status(500).send(`<div>${JSON.stringify(err)}</div>`);
     }
 }
 
