@@ -2,7 +2,7 @@
     "setId": "e0cf024d-7824-41d7-8882-cf21a6f9cd3a",
     "params": {
         "databaseName": "digitSiteData",
-        "collectionName": "componentDatas",
+        "collectionName": "componentData",
         "documentId": "none",
         "useUri": "MONGODB_URI_DIGIT_GET"
     }
