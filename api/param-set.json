@@ -12,6 +12,7 @@
         "databaseName": "color-themes",
         "collectionName": "material-ui",
         "documentId": "none",
+        "validationAttr": "themeName",
         "useUri": "MONGODB_URI_THEMES_ALL"
     }
 }]

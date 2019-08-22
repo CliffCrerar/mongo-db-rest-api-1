@@ -25,7 +25,7 @@ function reqLogConsole(req){
     console.log('\n REQUEST METHOD: ',req.method,'\n');
     console.log('\n REQUEST PATH: ', req.path, '\n');
     console.log('\n REQUEST QUERY: ', req.query, '\n');
-    console.log('\n REQUEST BODY: ', req.body, '\n');
+    // console.log('\n REQUEST BODY: ', req.body, '\n');
     
     return;
 }
