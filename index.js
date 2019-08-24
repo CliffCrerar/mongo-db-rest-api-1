@@ -33,7 +33,7 @@ function reqLogConsole(req){
 console.log(`|>-> INIT API: ${ API_NAME }`);
 
 app.get('*', (req, res) => {
-    reqLogConsole(req);
+    // reqLogConsole(req);
     Retrieve(req.query,res);
 })
 

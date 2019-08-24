@@ -1,18 +1,32 @@
 [{
     "setId": "e0cf024d-7824-41d7-8882-cf21a6f9cd3a",
     "params": {
+        "method": "Get",
         "databaseName": "digitSiteData",
         "collectionName": "componentData",
         "documentId": "none",
-        "useUri": "MONGODB_URI_DIGIT_GET"
+        "useUri": "MONGODB_URI_DIGIT_GET",
+        "preResponseAction:": false
     }
 }, {
     "setId": "9add452a-ba41-447c-821b-2d932ae3297f",
     "params": {
+        "method": "PUT",
         "databaseName": "color-themes",
         "collectionName": "material-ui",
         "documentId": "none",
         "validationAttr": "themeName",
+        "useUri": "MONGODB_URI_THEMES_ALL",
+        "preResponseAction:": false
+    }
+}, {
+    "setId": "f2beec80-c5b2-11e9-8bed-8f6aabae5a50",
+    "params": {
+        "method": "GET",
+        "databaseName": "color-themes",
+        "collectionName": "material-ui",
+        "documentId": "5d5dbf298170a82b4133da20",
+        "validationAttr": "not required on GET",
         "useUri": "MONGODB_URI_THEMES_ALL"
     }
 }]
