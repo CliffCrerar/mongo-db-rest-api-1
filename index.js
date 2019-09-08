@@ -8,6 +8,7 @@ const path = require('path');
 const parseLog = require('mongodb-log').parse;
 const os = require('os');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // Compatibility with posix and windows.
 process.env.NODE_PATH=[__dirname,path.join(__dirname,'api')].join(os.platform!='win32'? ':':";");
@@ -16,7 +17,7 @@ let line = 'Wed Mar 12 14:42:31 [initandlisten] db version v2.5.6-pre-';
 console.log("MDB-LOG",parseLog(line));
 
 app.use(helmet());
-
+app.use(cors());
 app.use('/',express.static(path.join(__dirname,'api')))
 
 function reqLogConsole(req){
