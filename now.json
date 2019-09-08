@@ -7,7 +7,8 @@
         "use": "@now/node"
     }],
     "env": {
-        "MONGODB_URI_DIGIT_GET": "@DigitMongoRetrievalAccess",
-        "MONGODB_URI_THEMES_ALL": "@themesDbReadWrite"
+        "MONGODB_URI_DIGIT_GET": "@digitmongoretrievalaccess",
+        "MONGODB_URI_THEMES_ALL": "@themesdbreadwrite",
+        "MONGODB_URI_PHONEBOOK_CRUD": "@phonebookcrud"
     }
 }

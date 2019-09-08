@@ -10,7 +10,7 @@ async function Retrieve(...RetrieveParams) {
         { lookupKey } = RetrieveParams[0], // produces the key for param-set.json lookup
         { collectionName, useUri, databaseName, documentId } =
             paramsetLookup.filter(entry => entry.setId === lookupKey)[0].params;
-    // logParams(lookupKey,collectionName, useUri, databaseName, documentId)
+     logParams(lookupKey,collectionName, useUri, databaseName, documentId)
 
     try {
         // if no document is specified use blank object and find collection method 

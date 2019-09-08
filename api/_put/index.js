@@ -9,7 +9,7 @@ async function Insert(...PutParams) {
     // console.log('PutParams: ', PutParams);
     
     const {lookupKey} = PutParams[0];
-    const {collectionName,useUri,databaseName,validationAttr} = paramsetLookup.filter(entry => entry.setId === lookupKey)[0].params
+    const {collectionName,useUri,databaseName,validationAttr,insertOpt} = paramsetLookup.filter(entry => entry.setId === lookupKey)[0].params
     const recordInsert = PutParams[2];
     
     // console.log('lookupKey: ', lookupKey);
@@ -35,7 +35,7 @@ async function Insert(...PutParams) {
             if(result.length > 0){
                 throw new Error('Record exists already');
             } else {
-                result = await collection.insertOne(recordInsert); // Select the users collection from the database
+                result = await collection[insertOpt](recordInsert); // Select the users collection from the database
                 res.status(200).json({ res: result }); // Respond with a JSON string of all users in the collection
             }
     } catch (err) {

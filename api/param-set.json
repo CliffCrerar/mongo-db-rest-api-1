@@ -1,32 +1,71 @@
 [{
-    "setId": "e0cf024d-7824-41d7-8882-cf21a6f9cd3a",
-    "params": {
-        "method": "Get",
-        "databaseName": "digitSiteData",
-        "collectionName": "componentData",
-        "documentId": "none",
-        "useUri": "MONGODB_URI_DIGIT_GET",
-        "preResponseAction:": false
+        "setId": "e0cf024d-7824-41d7-8882-cf21a6f9cd3a",
+        "params": {
+            "method": "Get",
+            "databaseName": "digitSiteData",
+            "collectionName": "componentData",
+            "documentId": "none",
+            "useUri": "MONGODB_URI_DIGIT_GET",
+            "preResponseAction:": false
+        }
+    }, {
+        "setId": "9add452a-ba41-447c-821b-2d932ae3297f",
+        "params": {
+            "method": "PUT",
+            "databaseName": "color-themes",
+            "collectionName": "material-ui",
+            "documentId": "none",
+            "validationAttr": "themeName",
+            "useUri": "MONGODB_URI_THEMES_ALL",
+            "preResponseAction:": false,
+            "insertOpt": "insertOne"
+        }
+    }, {
+        "setId": "f2beec80-c5b2-11e9-8bed-8f6aabae5a50",
+        "params": {
+            "method": "GET",
+            "databaseName": "color-themes",
+            "collectionName": "material-ui",
+            "documentId": "5d5dbf298170a82b4133da20",
+            "validationAttr": "not required on GET",
+            "useUri": "MONGODB_URI_THEMES_ALL"
+        }
+    },
+    {
+        "setId": "1d963791-5450-4275-a614-7349b54df552",
+        "params": {
+            "method": "GET",
+            "databaseName": "phonebook_demo",
+            "collectionName": "contacts",
+            "documentId": "none",
+            "validationAttr": "intId",
+            "useUri": "MONGODB_URI_PHONEBOOK_CRUD"
+        }
+    },
+    {
+        "setId": "4308d16a-3065-44ed-9514-cb2c496b93b7",
+        "params": {
+            "method": "PUT",
+            "databaseName": "phonebook_demo",
+            "collectionName": "contacts",
+            "documentId": "none",
+            "validationAttr": "intId",
+            "useUri": "MONGODB_URI_PHONEBOOK_CRUD",
+            "preResponseAction:": false,
+            "insertOpt": "insertMany"
+        }
+    },
+    {
+        "setId": "33183092-929b-44b4-9d7e-d2a8b3a98ead",
+        "params": {
+            "method": "PUT",
+            "databaseName": "phonebook_demo",
+            "collectionName": "contacts",
+            "documentId": "none",
+            "validationAttr": "intId",
+            "useUri": "MONGODB_URI_PHONEBOOK_CRUD",
+            "preResponseAction:": false,
+            "insertOpt": "insertOne"
+        }
     }
-}, {
-    "setId": "9add452a-ba41-447c-821b-2d932ae3297f",
-    "params": {
-        "method": "PUT",
-        "databaseName": "color-themes",
-        "collectionName": "material-ui",
-        "documentId": "none",
-        "validationAttr": "themeName",
-        "useUri": "MONGODB_URI_THEMES_ALL",
-        "preResponseAction:": false
-    }
-}, {
-    "setId": "f2beec80-c5b2-11e9-8bed-8f6aabae5a50",
-    "params": {
-        "method": "GET",
-        "databaseName": "color-themes",
-        "collectionName": "material-ui",
-        "documentId": "5d5dbf298170a82b4133da20",
-        "validationAttr": "not required on GET",
-        "useUri": "MONGODB_URI_THEMES_ALL"
-    }
-}]
+]
