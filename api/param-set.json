@@ -15,7 +15,7 @@
             "databaseName": "color-themes",
             "collectionName": "material-ui",
             "documentId": "none",
-            "validationAttr": "themeName",
+            "validationAttr": ["themeName"],
             "useUri": "MONGODB_URI_THEMES_ALL",
             "preResponseAction:": false,
             "insertOpt": "insertOne"
@@ -27,7 +27,7 @@
             "databaseName": "color-themes",
             "collectionName": "material-ui",
             "documentId": "5d5dbf298170a82b4133da20",
-            "validationAttr": "not required on GET",
+            "validationAttr": [],
             "useUri": "MONGODB_URI_THEMES_ALL"
         }
     },
@@ -38,7 +38,7 @@
             "databaseName": "phonebook_demo",
             "collectionName": "contacts",
             "documentId": "none",
-            "validationAttr": "intId",
+            "validationAttr": ["FirstName", "LastName"],
             "useUri": "MONGODB_URI_PHONEBOOK_CRUD"
         }
     },
