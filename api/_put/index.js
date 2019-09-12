@@ -30,15 +30,15 @@ async function Insert(...PutParams) {
             db = await connectToDatabase(useUri), // using the connection string environment variable as the argument
             collection = await db.collection(collectionName); // Select the "users" collection from the database
         //result = await collection.insertOne(recordInsert); // Select the users collection from the database
-        result = await collection.find({
-            [validationAttr]: recordInsert[validationAttr]
-        }).toArray();
-        if (result.length > 0) {
-            throw new Error('Record exists already');
-        } else {
-            result = await collection[insertOpt](recordInsert); // Select the users collection from the database
-            res.status(200).json({ res: result }); // Respond with a JSON string of all users in the collection
-        }
+        // result = await collection.find({
+        // [validationAttr]: recordInsert[validationAttr]
+        // }).toArray();
+        // if (result.length > 0) {
+        // throw new Error('Record exists already');
+        // } else {
+        result = await collection[insertOpt](recordInsert); // Select the users collection from the database
+        res.status(200).json({ res: result }); // Respond with a JSON string of all users in the collection
+        // }
     } catch (err) {
         console.error("PUT ERROR:", err);
         res.status(500).send(`<div>${err}</div>`).end();
