@@ -9,25 +9,26 @@ const parseLog = require('mongodb-log').parse;
 const os = require('os');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const deleteOneRow = require('./api/_delete');
 
 // Compatibility with posix and windows.
-process.env.NODE_PATH=[__dirname,path.join(__dirname,'api')].join(os.platform!='win32'? ':':";");
+process.env.NODE_PATH = [__dirname, path.join(__dirname, 'api')].join(os.platform != 'win32' ? ':' : ";");
 
 let line = 'Wed Mar 12 14:42:31 [initandlisten] db version v2.5.6-pre-';
-console.log("MDB-LOG",parseLog(line));
+console.log("MDB-LOG", parseLog(line));
 
 app.use(helmet());
 app.use(cors());
-app.use('/',express.static(path.join(__dirname,'api')))
+app.use('/', express.static(path.join(__dirname, 'api')))
 
-function reqLogConsole(req){
+function reqLogConsole(req) {
     console.log(`|> ${ API_NAME } received request from ${ req.hostname }`);
     console.log('\n REQUEST HEADERS: ', req.headers, '\n');
-    console.log('\n REQUEST METHOD: ',req.method,'\n');
+    console.log('\n REQUEST METHOD: ', req.method, '\n');
     console.log('\n REQUEST PATH: ', req.path, '\n');
     console.log('\n REQUEST QUERY: ', req.query, '\n');
     // console.log('\n REQUEST BODY: ', req.body, '\n');
-    
+
     return;
 }
 
@@ -35,12 +36,18 @@ console.log(`|>-> INIT API: ${ API_NAME }`);
 
 app.get('*', (req, res) => {
     // reqLogConsole(req);
-    Retrieve(req.query,res);
+    Retrieve(req.query, res);
 })
 
 app.put('*', bodyParser.json(), (req, res) => {
     reqLogConsole(req);
     Insert(req.query, res, req.body);
+});
+
+app.delete('*', bodyParser.json(), (req, res) => {
+
+    reqLogConsole(req);
+    deleteOneRow(req.query, res, req.body);
 });
 
 module.exports = app;

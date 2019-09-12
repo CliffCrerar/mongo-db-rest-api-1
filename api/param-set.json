@@ -49,7 +49,7 @@
             "databaseName": "phonebook_demo",
             "collectionName": "contacts",
             "documentId": "none",
-            "validationAttr": "intId",
+            "validationAttr": "[intId]",
             "useUri": "MONGODB_URI_PHONEBOOK_CRUD",
             "preResponseAction:": false,
             "insertOpt": "insertMany"
@@ -62,10 +62,23 @@
             "databaseName": "phonebook_demo",
             "collectionName": "contacts",
             "documentId": "none",
-            "validationAttr": "intId",
+            "validationAttr": "[intId]",
             "useUri": "MONGODB_URI_PHONEBOOK_CRUD",
             "preResponseAction:": false,
             "insertOpt": "insertOne"
+        }
+    },
+    {
+        "setId": "2033695f-12c5-477c-9be0-30319f3242ea",
+        "params": {
+            "method": "DELETE",
+            "databaseName": "phonebook_demo",
+            "collectionName": "contacts",
+            "documentId": "[]",
+            "validationAttr": "_id",
+            "useUri": "MONGODB_URI_PHONEBOOK_CRUD",
+            "preResponseAction:": false,
+            "insertOpt": "deleteOne"
         }
     }
 ]
