@@ -17,7 +17,7 @@ async function deleteOneRow(...PutParams) {
             result = await collection.deleteOne(where(validationAttr, delete_record)); // Select the users collection from the database
         res.status(200).json({ res: result }); // Respond with a JSON string of all users in the collection
     } catch (err) {
-        console.error("PUT ERROR:", err);
+        console.error("DELETE ERROR:", err);
         res.status(500).send(`<div>${err}</div>`).end();
     }
 
@@ -41,6 +41,6 @@ module.exports = deleteOneRow;
 // console.log('collectionName: ', collectionName);
 // console.log('Entry to PUT: ', PutParams[2]);
 // console.log('RetrieveParams[1];: ', RetrieveParams[1]);
-//const { collectionName } = RetrieveParams[0];
+// const { collectionName } = RetrieveParams[0];
 // console.log('CONNECTION STRING:', process.env.MONGODB_URI_THEMES_ALL);
 // console.log('CONNECTION STRING CH :', process.env[useUri]);

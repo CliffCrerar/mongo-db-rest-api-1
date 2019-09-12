@@ -41,7 +41,7 @@ async function Insert(...PutParams) {
         // }
     } catch (err) {
         console.error("PUT ERROR:", err);
-        res.status(500).send(`<div>${err}</div>`).end();
+        res.status(500).send(`${err}`).end();
     }
 }
 
