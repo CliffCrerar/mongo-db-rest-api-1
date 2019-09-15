@@ -1,6 +1,10 @@
 {
     "cSpell.words": [
-        "devmode"
+        "PHONEBOOK",
+        "devmode",
+        "digitmongoretrievalaccess",
+        "phonebookcrud",
+        "themesdbreadwrite"
     ],
     "[javascript]": {
          "editor.matchBrackets": true,
