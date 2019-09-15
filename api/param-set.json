@@ -80,5 +80,18 @@
             "preResponseAction:": false,
             "insertOpt": "deleteOne"
         }
+    },
+    {
+        "setId": "a6824247-ba78-4031-b04b-f2a7e980d3dd",
+        "params": {
+            "method": "POST",
+            "databaseName": "phonebook_demo",
+            "collectionName": "contacts",
+            "documentId": "[]",
+            "validationAttr": "_id",
+            "useUri": "MONGODB_URI_PHONEBOOK_CRUD",
+            "preResponseAction:": false,
+            "insertOpt": "updateOne"
+        }
     }
 ]

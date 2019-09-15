@@ -1,5 +1,29 @@
 {
     "cSpell.words": [
         "devmode"
-    ]
+    ],
+    "[javascript]": {
+         "editor.matchBrackets": true,
+        
+    },
+    "javascript.format.insertSpaceAfterCommaDelimiter": true,
+    "javascript.format.insertSpaceAfterConstructor": true,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "javascript.preferences.importModuleSpecifier": "auto",
+    "javascript.preferences.quoteStyle": "single",
+    "javascript.preferences.renameShorthandProperties": true,
+    "javascript.suggest.autoImports": true,
+    "javascript.suggest.completeFunctionCalls": true,
+    "javascript.suggest.completeJSDocs": true,
+    "javascript.suggest.enabled": true,
+    "javascript.suggest.names": true,
+    "javascript.suggest.paths": true,
+    "javascript.suggestionActions.enabled": true,
+    "typescript.suggest.enabled": false,
+    "typescript.suggest.paths": false,
+    "typescript.suggestionActions.enabled": false,
+    "tslint.enable": false
 }

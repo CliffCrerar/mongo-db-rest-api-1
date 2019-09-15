@@ -1,4 +1,4 @@
-const API_NAME = 'GET DATA';
+const API_NAME = 'MongoDB Rest API';
 const express = require('express');
 const helmet = require('helmet');
 const app = express();
@@ -9,16 +9,30 @@ const parseLog = require('mongodb-log').parse;
 const os = require('os');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const deleteOneRow = require('./api/_delete');
+let deleteOneRow = require('./api/_delete');
+let upsertOneRow = require('./api/_post');
+let morgan = require('morgan');
 
 // Compatibility with posix and windows.
 process.env.NODE_PATH = [__dirname, path.join(__dirname, 'api')].join(os.platform != 'win32' ? ':' : ";");
 
-let line = 'Wed Mar 12 14:42:31 [initandlisten] db version v2.5.6-pre-';
+let line = new Date().toUTCString + ' [initandlisten] db version v2.5.6-pre-';
 console.log("MDB-LOG", parseLog(line));
 
 app.use(helmet());
 app.use(cors());
+app.use(morgan(`
+LOG > :date \n 
+REMOTE: > :remote-addr  
+USER > :remote-user  
+REQ HEADER > :req[header]  
+METHOD > :method 
+URL > :url 
+STATUS > :status 
+RES HEADER > :res[header] 
+RES LEN > :res[content-length] 
+RES TIME > :response-time ms
+AGENT > :user-agent`));
 app.use('/', express.static(path.join(__dirname, 'api')))
 
 function reqLogConsole(req) {
@@ -28,14 +42,13 @@ function reqLogConsole(req) {
     console.log('\n REQUEST PATH: ', req.path, '\n');
     console.log('\n REQUEST QUERY: ', req.query, '\n');
     // console.log('\n REQUEST BODY: ', req.body, '\n');
-
     return;
 }
 
 console.log(`|>-> INIT API: ${ API_NAME }`);
 
 app.get('*', (req, res) => {
-    // reqLogConsole(req);
+    reqLogConsole(req);
     Retrieve(req.query, res);
 })
 
@@ -44,8 +57,12 @@ app.put('*', bodyParser.json(), (req, res) => {
     Insert(req.query, res, req.body);
 });
 
-app.delete('*', bodyParser.json(), (req, res) => {
+app.post('*', bodyParser.json(), (req, res) => {
+    reqLogConsole(req);
+    upsertOneRow(req.query, res, req.body);
+});
 
+app.delete('*', bodyParser.json(), (req, res) => {
     reqLogConsole(req);
     deleteOneRow(req.query, res, req.body);
 });
