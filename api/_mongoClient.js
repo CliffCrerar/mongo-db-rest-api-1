@@ -1,6 +1,7 @@
 // Import Dependencies
 let url = require('url');
 const MongoClient = require('mongodb').MongoClient;
+console.log('MongoClient: ', JSON.stringify(MongoClient));
 // Create cached connection variable
 let cachedDb = null;
 const legacyModifiers = { useUnifiedTopology: true,useNewUrlParser: true  };
