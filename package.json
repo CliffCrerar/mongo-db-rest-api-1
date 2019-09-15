@@ -24,7 +24,8 @@
     "node": ">=8.0.0 <12.0.0"
   },
   "devDependencies": {},
-  "repository": "type": "git",
+  "repository": {
+    "type": "git",
     "url": "git+https://github.com/CliffCrerar/mongo-db-rest-api-1.git"
   },
   "keywords": [
