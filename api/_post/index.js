@@ -51,7 +51,7 @@ function runLog ( par ) {
         recordInsert = par[ 2 ],
         res = par[ 1 ];
     console.log( __dirname );
-    fs.appendFileSync( __dirname + '/reqres.log', res, 'utf8' );
+    // fs.appendFileSync( __dirname + '/reqres.log', res, 'utf8' );
     console.log( '/------------- REQUEST VARIABLES LOG --------------/\n' );
     console.log( 'LOOKUP KEY -> ', lookupKey, '\n' );
     console.log( 'DOCUMENT ID ->', documentId, '\n' );
