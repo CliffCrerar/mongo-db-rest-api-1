@@ -1,26 +1,38 @@
 {
-    "name": "mongo-db-rest-api",
-    "version": "1.0.0",
-    "description": "Serve static files",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "now dev --listen 3050"
-    },
-    "dependencies": {
-        "body-parser": "^1.19.0",
-        "cors": "^2.8.5",
-        "express": "^4.17.1",
-        "helmet": "^3.18.0",
-        "moment": "^2.24.0",
-        "mongodb": "^3.3.0",
-        "mongodb-log": "^1.2.5",
-        "morgan": "^1.9.1",
-        "uuid": "^3.3.3"
-    },
-    "author": "Cliff Crerar",
-    "license": "MIT",
-    "engines": {
-        "node": ">=8.0.0 <12.0.0"
-    }
+  "name": "mongo-db-rest-api-1",
+  "version": "1.0.0",
+  "description": "Serve static files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "now dev --listen 3050"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "moment": "^2.24.0",
+    "mongodb": "^3.3.0",
+    "mongodb-log": "^1.2.5",
+    "morgan": "^1.9.1",
+    "uuid": "^3.3.3"
+  },
+  "author": "Cliff Crerar",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0 <12.0.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CliffCrerar/mongo-rest-api-1.git"
+  },
+  "keywords": [
+    "key-1"
+  ],
+  "bugs": {
+    "url": "https://github.com/CliffCrerar/mongo-rest-api-1/issues"
+  },
+  "homepage": "https://github.com/CliffCrerar/mongo-rest-api-1#readme"
 }
