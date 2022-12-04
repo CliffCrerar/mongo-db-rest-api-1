@@ -8,9 +8,9 @@
     "start": "now dev --listen 3050"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.19.2",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "helmet": "^3.18.0",
     "moment": "^2.24.0",
     "mongodb": "^3.3.0",
